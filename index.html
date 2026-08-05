@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Valeria! 💙</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue1: #0d47a1;
+    --blue2: #1976d2;
+    --blue3: #42a5f5;
+    --light: #e3f2fd;
+    --white: #ffffff;
+  }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(180deg, var(--blue1), var(--blue2), var(--blue3));
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed; top: 0; width: 100%;
+    background: rgba(13,71,161,0.8); backdrop-filter: blur(10px);
+    padding: 15px; text-align: center; z-index: 1000;
+    animation: slideDown 1s ease;
+  }
+  nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: 700; }
+  nav a:hover { color: var(--light); }
+  @keyframes slideDown { from {transform: translateY(-100%);} to {transform: translateY(0);} }
+
+  section {
+    min-height: 100vh;
+    padding: 100px 20px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 10px var(--white); }
+    to { text-shadow: 0 0 30px var(--blue3), 0 0 50px var(--blue2); }
+  }
+  .hero p { font-size: 1.5rem; margin: 20px 0; }
+  .balloon {
+    position: absolute; width: 50px; height: 70px; border-radius: 50%;
+    background: var(--blue3); animation: float 6s ease-in infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-40px) rotate(10deg); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(80px);
+    transition: all 1.2s ease;
+  }
+  .reveal.active {
+    opacity: 1; transform: translateY(0);
+  }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; width: 90%; max-width: 1000px; }
+  .card {
+    background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+    padding: 30px; border-radius: 20px; border: 2px solid var(--light);
+    transition: 0.4s;
+  }
+  .card:hover { transform: scale(1.05) rotate(-2deg); background: rgba(255,255,255,0.2); }
+  .icon { font-size: 3rem; margin-bottom: 10px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100% {transform: translateY(0);} 50% {transform: translateY(-15px);} }
+
+  .speech {
+    background: white; color: var(--blue1); padding: 30px; border-radius: 30px;
+    font-size: 1.3rem; max-width: 700px; position: relative;
+  }
+  .speech::after {
+    content: ''; position: absolute; bottom: -20px; left: 50px;
+    border: 20px solid transparent; border-top-color: white;
+  }
+
+  .btn {
+    background: var(--light); color: var(--blue1);
+    padding: 15px 35px; border: none; border-radius: 50px;
+    font-size: 1.2rem; font-weight: 900; cursor: pointer;
+    margin-top: 20px; transition: 0.3s;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100% {transform: scale(1);} 50% {transform: scale(1.1);} }
+  .btn:hover { background: white; }
+
+  footer { background: var(--blue1); padding: 40px; text-align: center; }
+  @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+</style>
+</head>
+<body>
+
+<!-- BACKGROUND MUSIC - SPRINTER LOOPS THE WHOLE TIME -->
+<audio id="bgMusic" loop>
+  <source src="sprinter.mp3" type="audio/mpeg">
+</audio>
+
+<nav>
+  <a href="#hero">Home</a>
+  <a href="#about">About Valeria</a>
+  <a href="#faves">Her Faves</a>
+  <a href="#wish">Birthday Wish</a>
+</nav>
+
+<!-- SECTION 1: HERO -->
+<section id="hero" class="hero">
+  <div class="balloon" style="left:10%; top:20%;"></div>
+  <div class="balloon" style="left:80%; top:30%; background:var(--blue2); animation-delay:1s;"></div>
+  <div class="balloon" style="left:50%; top:15%; background:var(--light); animation-delay:2s;"></div>
+  <h1>Happy Birthday Valeria! 🎉</h1>
+  <p>Today is all about YOU 💙</p>
+  <button class="btn" onclick="playBirthday()">Hear My Message 🔊</button>
+  <p style="font-size:0.9rem; margin-top:10px;">Tap to start music + speech</p>
+</section>
+
+<!-- SECTION 2: ABOUT -->
+<section id="about" class="reveal">
+  <h2 style="font-size:2.5rem; margin-bottom:20px;">Celebrating Valeria</h2>
+  <div class="speech">
+    "Valeria, you light up every room you walk into. Your kindness, your laugh, and your heart inspire everyone around you. Today we celebrate YOU!"
+  </div>
+</section>
+
+<!-- SECTION 3: FAVES -->
+<section id="faves" class="reveal" style="background: rgba(0,0,0,0.2);">
+  <h2 style="font-size:2.5rem; margin-bottom:20px;">Valeria's Favorite Things</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="icon">🎵</div>
+      <h3>Favorite Song</h3>
+      <p><b>Sprinter</b> by Dave & Central Cee</p>
+      <p>Playing now 💙</p>
+    </div>
+    <div class="card">
+      <div class="icon">💙</div>
+      <h3>Favorite Color</h3>
+      <p><b>Blue</b></p>
+      <p>Calm, loyal, and beautiful - just like you</p>
+    </div>
+    <div class="card">
+      <div class="icon">🍿</div>
+      <h3>Favorite Snacks</h3>
+      <p><b>Popcorn & Crisps</b></p>
+      <p>Movie night essentials!</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: WISH + CONFETTI -->
+<section id="wish" class="reveal">
+  <h2 style="font-size:2.5rem; margin-bottom:20px;">A Special Wish For You</h2>
+  <p style="max-width:800px; font-size:1.2rem; line-height:1.8;">
+    May this new year of life bring you endless joy, big dreams coming true, 
+    and all the popcorn and crisps you can eat 😄. 
+    Keep shining Valeria - the world needs your light!
+  </p>
+  <button class="btn" onclick="confettiBurst()">Tap for Confetti 🎊</button>
+</section>
+
+<footer>
+  <p>Made with 💙 for Valeria | Aug 12</p>
+</footer>
+
+<script>
+  let availableVoices = [];
+  function loadVoices() {
+    if ('speechSynthesis' in window) {
+      availableVoices = window.speechSynthesis.getVoices();
+    }
+  }
+  if ('speechSynthesis' in window) {
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  }
+
+  // SCROLL REVEAL
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      if(el.getBoundingClientRect().top < window.innerHeight - 100) 
+        el.classList.add('active');
+    });
+  });
+
+  // CONFETTI
+  function confettiBurst() {
+    for(let i=0; i<120; i++) {
+      let conf = document.createElement('div');
+      conf.style.position = 'fixed';
+      conf.style.width = '10px'; conf.style.height = '10px';
+      conf.style.background = ['#42a5f5','#1976d2','#0d47a1','white'][Math.floor(Math.random()*4)];
+      conf.style.left = Math.random() * 100 + 'vw';
+      conf.style.top = '-10px';
+      conf.style.zIndex = '9999';
+      conf.style.borderRadius = '2px';
+      conf.style.animation = `fall ${Math.random()*3+2}s linear forwards`;
+      document.body.appendChild(conf);
+      setTimeout(() => conf.remove(), 5000);
+    }
+  }
+  let style = document.createElement('style');
+  style.innerHTML = `@keyframes fall { to { transform: translateY(100vh) rotate(720deg); opacity:0; }`;
+  document.head.appendChild(style);
+
+  // LULLABY SPEECH + START MUSIC
+  function playBirthday() {
+    // 1. START MUSIC - Sprinter plays whole time
+    let music = document.getElementById('bgMusic');
+    music.volume = 0.25; // 25% so speech is clear
+    music.play().catch(()=>{ alert("Upload sprinter.mp3 to play music") });
+
+    // 2. SPEECH
+    if (!('speechSynthesis' in window)) {
+      alert("Speech doesn't work in this preview. Tap ... > Open in Chrome");
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    setTimeout(() => {
+      let speechText = `Happy Birthday, Valeria...
+
+      Today we celebrate you. Your kindness, your smile, and the light you bring to everyone around you.
+      
+      May this new year of your life be painted in your favorite color, blue. 
+      May it be filled with the energy of Sprinter by Dave and Central Cee playing on repeat.
+      And may it have unlimited popcorn and crisps for all your movie nights.
+      
+      Valeria, you deserve joy, success, and love in everything you do. 
+      Keep shining, keep dreaming big, and never forget how special you are.
+      
+      From all of us, Happy Birthday!`;
+
+      let msg = new SpeechSynthesisUtterance(speechText);
+      msg.rate = 0.75;  // lullaby speed
+      msg.pitch = 1.0;  // warm
+      msg.volume = 1;
+
+      let lullabyVoice = availableVoices.find(voice => 
+        voice.name.includes('Samantha') || 
+        voice.name.includes('Google UK English Female') ||
+        voice.name.includes('Female')
+      );
+      
+      if (lullabyVoice) {
+        msg.voice = lullabyVoice;
+        msg.lang = lullabyVoice.lang;
+      } else {
+        msg.lang = 'en-GB';
+      }
+
+      window.speechSynthesis.speak(msg);
+    }, 300);
+  }
+</script>
+
+</body>
+  </html>
